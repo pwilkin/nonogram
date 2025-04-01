@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <title>Nonogram Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Nonogram Game</h1>
+
+    <div id="settings">
+        <label for="rows">Rows (5-25):</label>
+        <input type="number" id="rows" name="rows" min="5" max="25" value="10">
+        <label for="cols">Columns (5-25):</label>
+        <input type="number" id="cols" name="cols" min="5" max="25" value="10">
+        <br> <!-- Add a line break for better layout -->
+        <label for="difficulty">Difficulty:</label>
+        <input type="range" id="difficulty" name="difficulty" min="1" max="5" value="3">
+        <span id="difficulty-value">3</span> <!-- Display current difficulty -->
+        <button id="generate-board">Generate Board</button>
+    </div>
+
+    <div id="game-container">
+        <div id="col-hints"></div>
+        <div id="row-hints"></div>
+        <div id="grid"></div>
+    </div>
+
+    <div id="pixel-art-description" style="margin-top: 15px; font-style: italic; text-align: center; display: none;"></div> <!-- Description here, moved below game-container -->
+
+
+    <div id="controls">
+        <button id="check-solution">Check Solution</button>
+        <button id="highlight-errors">Highlight Errors</button>
+        <button id="show-solution">Show Solution</button>
+        <button id="interpret-image" style="display: none;">What's in the picture?</button> <!-- Initially hidden -->
+    </div>
+
+    <div id="interpretation-result" style="margin-top: 15px; padding: 10px; background-color: #eef; border-radius: 5px; display: none;">
+        <!-- AI interpretation will be shown here -->
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+</body>
+</html>
